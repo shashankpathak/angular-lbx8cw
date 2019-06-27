@@ -1,0 +1,20 @@
+/* Add application styles & imports to this file! */
+@import '~bootstrap/dist/css/bootstrap.min.css';
+
+body{
+  font-family: Lato;
+  background-color: #f6f6f6 !important;
+}
+
+img{
+  border-radius: 50%;
+}
+
+a{
+  color: rgb(0, 0, 0);
+}
+a:hover, a:active, a:focus{
+  outline: none;
+  color: rgb(16, 111, 175);
+  text-decoration: none;
+}

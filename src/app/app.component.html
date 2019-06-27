@@ -1,0 +1,78 @@
+<div class="Assign">
+  <div class="filter">
+    <div class="row-filt">
+      <div class= "col col-6">
+        <select (change)="sort()" class="required form-control inputFormHeight listText" id="dropdown" name="dropdown" [(ngModel)]="dropdown" required >
+          <option *ngFor="let data of sortarr" [value]="data.id" >{{data.name}}</option>
+        </select>
+      </div>
+        <div class="col col-4" >
+          <form class="icon-search" > 
+            <input class="form-control" [(ngModel)]="searchText" [ngModelOptions]="{standalone :true}" type="text" placeholder="Enter Name Here.." aria-label="Search" >
+          </form>
+        </div>
+    </div>
+  </div>
+<div class="count offset-lg-1 pl-3 " >Total count : {{count}} </div>
+<div class="columns is-multiline col-lg-10 offset-lg-1" id="accordian">
+      <div  class="column is-4" *ngFor="let user of users | orderBy:order:ascending|username:searchText | paginate: { itemsPerPage: 4, currentPage: p };let i=index">
+        <div class="card">
+          <div class="card-header" [id]="'heading'+i">
+        <div class="mb-0 card-header-in collapsed">
+          <div class="row">
+            <div class="col col-2">
+            <img src={{user.avatar_url}} alt="Avatar" style="width:80px; height: 90px">
+			</div>
+            <div class="col col-8">
+              <div class="form-group form-inline">
+          <label class="font-weight-bold" for="userid">{{user.login| titlecase}}</label>
+              </div>
+        <div class="form-group form-inline">
+          <label for="userid">Profile URL : <a href="{{user.url}}" target="_blank">{{user.url}}</a>
+          </label>
+        </div>
+            </div>
+          </div>
+            <div class="row text-center offset-1 wtcher">
+              <div class="col col-6">
+              <div class="col col-6 ml-4">
+          <label for="userid">Open Issues :</label>
+          <label class="pl-1">{{user.open_issues}}</label>
+			</div>
+          <div class="col col-6 ml-2 pl-4">
+          <label for="userid">Watchers :  </label>
+          <label>{{user.watchers}}</label>
+        </div>
+        </div>
+        <button class="btn btn-outline-info col-lg-2 offset-lg-3" type="button" data-toggle="collapse" [attr.data-target]="'#collapseExample'+i" aria-expanded="false" [attr.aria-controls]="'collapseExample'+i" >
+          <span class="hide-me">Details</span>
+          <span class="show-me">Collapse</span>
+        </button>
+            </div>
+        </div>
+          </div>
+          <div class="collapse" [id]="'collapseExample'+i" [attr.aria-labelledby]="'collapseExample'+i" data-parent="#accordian">
+            <div class="card card-body">
+              <div class="row" *ngFor="let r of user.repos">
+                <div class="col col-5">
+                  <div>{{r.name}}</div>
+                </div>
+                <div class="col col-6">{{r.languages}}</div>
+              </div>
+            </div>
+            </div>
+        </div>
+        </div>
+</div>
+<div class="columns is-multiline col-lg-10 offset-lg-1">
+  <div class="row">
+    <pagination-controls class="col col-5 offset-lg-7" (pageChange)="p=$event"></pagination-controls>
+  </div>
+</div>
+</div>
+<div *ngIf="showLoading" class="loader-block">
+  <div class="loader"></div>
+</div>
+
+
+
