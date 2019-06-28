@@ -1,3 +1,73 @@
-p {
-  font-family: Lato;
+.filter{
+  background: #147abc;
+  padding: .75rem 1.05rem;
+  margin-bottom: 20px;
+  border: 1px solid #010305;
+  border-radius: 3px;
+}
+
+.filt{
+  margin-right: 0px !important;
+}
+.count{
+  text-align: left;
+  vertical-align: middle;
+  margin-bottom: 10px;
+}
+.btn[aria-expanded="true"] .hide-me {display: none;}
+.btn[aria-expanded="false"] .hide-me {display: block;}
+.btn[aria-expanded="true"] .show-me {display: block;}
+.btn[aria-expanded="false"] .show-me {display: none;}
+
+.card-header{
+  background: #e6e8e9;
+}
+.Assign{
+  -webkit-overflow-scrolling: none;
+}
+.loader-block{
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  background: rgba(0, 0, 0, .125);
+  z-index: 1000;
+}
+.loader{
+  display: inline-block;
+  position: absolute;
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background: #006297;
+  animation-timing-function: cubic-bezier(0, 1, 1, 0);
+}
+.loader div:nth-child(1){
+  left: 6px;
+  animation: lds-ellipsis1 .6s infinite;
+}
+.loader div:nth-child(2){
+  left: 6px;
+  animation: lds-ellipsis2 .6s infinite;
+}
+.loader div:nth-child(3){
+  left: 6px;
+  animation: lds-ellipsis2 .6s infinite;
+}
+.loader div:nth-child(4){
+  left: 6px;
+  animation: lds-ellipsis3 .6s infinite;
+}
+.wtcher{
+  line-height: 78%;
+}
+.card{
+  margin-bottom: 15px;
+}
+.card.card-body{
+  margin-bottom: 0;
+}
+.card-header{
+  border: 0;
+  box-shadow: 1px 1px 3px rgba(109, 106, 106, 0.973)
 }
